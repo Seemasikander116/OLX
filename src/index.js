@@ -1,17 +1,26 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+import Sdata from "./Sdata";
+import Cards from "./Cards";
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import rootReducer from './services/reducer/index'
+export const AuthContext = React.createContext(null);
+const store=createStore(rootReducer)
+console.warn(store)
+ ReactDOM.render(
+  <BrowserRouter>
+   <Provider store={store}>
+  
+   <App />
+   </Provider>
+
+    
+   </BrowserRouter>
+   ,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

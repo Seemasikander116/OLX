@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./Header";
+import Navv from "./Navv";
+import Mobile from "./Mobile"
+import Tv from "./Tv"
+import Car from "./Car"
+import House from "./House"
+import Land from "./Land"
+import Motorcycle from "./Motorcycle"
+import Post from "./Post"
+import MainPage from "./MainPage.jsx"
+import Tablet from "./Tablet"
+import {Route,Switch} from "react-router";
+import Footer from'./Footer';
 
-function App() {
+function App(props) {
+  
+    
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Header/>
+     
+     <Navv/>
+     <Switch>
+     <Route exact path="/" component={MainPage}/> 
+<Route exact path="/Mobile" component={Mobile}/>
+<Route exact path="/Car" component={Car}/>
+<Route exact path="/House" component={House}/>
+<Route exact path="/Tv" component={Tv}/>
+<Route exact path="/Tablet" component={Tablet}/>
+<Route exact path="/Land" component={Land}/>
+
+<Route exact path="/Post" component={Post}/>
+<Route exact path="/Motorcycle" component={Motorcycle}/>
+
+</Switch>
+<Footer/>
+
+ </>
   );
 }
 
 export default App;
+
